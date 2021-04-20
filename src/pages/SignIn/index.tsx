@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef } from 'react';
 import {
   Image,
   View,
@@ -7,22 +7,22 @@ import {
   Platform,
   TextInput,
   Alert,
-} from "react-native";
-import Icon from "react-native-vector-icons/Feather";
-import { useNavigation } from "@react-navigation/native";
-import * as Yup from "yup";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
+import { useNavigation } from '@react-navigation/native';
+import * as Yup from 'yup';
 
-import { Form } from "@unform/mobile";
-import { FormHandles } from "@unform/core";
+import { Form } from '@unform/mobile';
+import { FormHandles } from '@unform/core';
 
-import { useAuth } from "../../hooks/auth";
+import { useAuth } from '../../hooks/auth';
 
-import getValidationErrors from "../../utils/getValidationErrors";
+import getValidationErrors from '../../utils/getValidationErrors';
 
-import Input from "../../components/Input";
-import Button from "../../components/Button";
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
-import logoImg from "../../assets/logo.png";
+import logoImg from '../../assets/logo.png';
 
 import {
   Container,
@@ -31,7 +31,7 @@ import {
   ForgotPasswordText,
   CreateAccountButton,
   CreateAccountButtonText,
-} from "./styles";
+} from './styles';
 
 interface SignInFormData {
   email: string;
@@ -51,9 +51,9 @@ const SignIn: React.FC = () => {
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
           email: Yup.string()
-            .email("Digite um e-mail válido")
-            .required("E-mail obrigatório"),
-          password: Yup.string().required("Senha obrigatória"),
+            .email('Digite um e-mail válido')
+            .required('E-mail obrigatório'),
+          password: Yup.string().required('Senha obrigatória'),
         });
 
         await schema.validate(data, { abortEarly: false });
@@ -68,19 +68,19 @@ const SignIn: React.FC = () => {
         }
 
         Alert.alert(
-          "Erro na autenticação",
-          "Ocorreu um erro ao fazer login, cheque as credenciais."
+          'Erro na autenticação',
+          'Ocorreu um erro ao fazer login, cheque as credenciais.',
         );
       }
     },
-    [signIn]
+    [signIn],
   );
 
   return (
     <>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         enabled
       >
         <ScrollView
@@ -96,8 +96,8 @@ const SignIn: React.FC = () => {
             <Form ref={formRef} onSubmit={handleSignIn}>
               <Input
                 autoCorrect={false}
-                autoCapitalize={"none"}
-                keyboardType={"email-address"}
+                autoCapitalize={'none'}
+                keyboardType={'email-address'}
                 name="email"
                 icon="mail"
                 placeholder="Email"
@@ -128,7 +128,7 @@ const SignIn: React.FC = () => {
 
             <ForgotPassword
               onPress={() => {
-                console.log("deu 2");
+                console.log('deu 2');
               }}
             >
               <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
@@ -139,7 +139,7 @@ const SignIn: React.FC = () => {
 
       <CreateAccountButton
         onPress={() => {
-          navigation.navigate("SignUp");
+          navigation.navigate('SignUp');
         }}
       >
         <Icon name="log-in" size={20} color="#ff9000" />

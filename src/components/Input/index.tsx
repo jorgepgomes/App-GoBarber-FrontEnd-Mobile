@@ -5,11 +5,11 @@ import React, {
   forwardRef,
   useState,
   useCallback,
-} from "react";
-import { TextInputProps } from "react-native";
-import { useField } from "@unform/core";
+} from 'react';
+import { TextInputProps } from 'react-native';
+import { useField } from '@unform/core';
 
-import { Container, TextInput, Icon } from "./styles";
+import { Container, TextInput, Icon } from './styles';
 
 interface InputProps extends TextInputProps {
   name: string;
@@ -26,11 +26,11 @@ interface InputRef {
 
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   { name, icon, ...rest },
-  ref
+  ref,
 ) => {
   const inputElementRef = useRef<any>(null);
 
-  const { registerField, defaultValue = "", fieldName, error } = useField(name);
+  const { registerField, defaultValue = '', fieldName, error } = useField(name);
   const inputValueRef = useRef<InputValueReference>({ value: defaultValue });
 
   const [isFocused, setIsFocused] = useState(false);
@@ -54,13 +54,13 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     registerField<string>({
       name: fieldName,
       ref: inputValueRef.current,
-      path: "value",
+      path: 'value',
       setValue(ref: any, value) {
         inputElementRef.current.value = value;
         inputElementRef.current.setNativeProps({ text: value });
       },
       clearValue() {
-        inputElementRef.current.value = "";
+        inputElementRef.current.value = '';
         inputElementRef.current.clear();
       },
     });
@@ -71,7 +71,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
       <Icon
         name={icon}
         size={20}
-        color={isFocused || isFilled ? "#ff9000" : "#666360"}
+        color={isFocused || isFilled ? '#ff9000' : '#666360'}
       />
       <TextInput
         ref={inputElementRef}

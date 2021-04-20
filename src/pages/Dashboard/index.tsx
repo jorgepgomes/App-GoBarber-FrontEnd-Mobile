@@ -1,7 +1,7 @@
-import { useNavigation } from "@react-navigation/native";
-import React, { useCallback, useEffect, useState } from "react";
-import Icon from "react-native-vector-icons/Feather";
-import { useAuth } from "../../hooks/auth";
+import { useNavigation } from '@react-navigation/native';
+import React, { useCallback, useEffect, useState } from 'react';
+import Icon from 'react-native-vector-icons/Feather';
+import { useAuth } from '../../hooks/auth';
 
 import {
   Container,
@@ -18,8 +18,8 @@ import {
   ProviderMeta,
   ProviderMetaText,
   ProvidersListTitle,
-} from "./styles";
-import api from "../../services/api";
+} from './styles';
+import api from '../../services/api';
 
 export interface Provider {
   id: string;
@@ -35,7 +35,7 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     api
-      .get("providers")
+      .get('providers')
       .then((response) => {
         setProviders(response.data);
       })
@@ -43,19 +43,19 @@ const Dashboard: React.FC = () => {
   }, []);
 
   const navigateToProfile = useCallback(() => {
-    navigate("Profile");
+    navigate('Profile');
     signOut();
   }, []);
 
   const navigateToCreateAppointment = useCallback((providerId: string) => {
-    navigate("CreateAppointment", { providerId });
+    navigate('CreateAppointment', { providerId });
   }, []);
 
   return (
     <Container>
       <Header>
         <HeaderTitle>
-          Bem vindo, {"\n"}
+          Bem vindo, {'\n'}
           <Username>{user.name}</Username>
         </HeaderTitle>
 
@@ -79,12 +79,12 @@ const Dashboard: React.FC = () => {
               <ProviderName>{provider.name}</ProviderName>
 
               <ProviderMeta>
-                <Icon name="calendar" size={14} color={"#ff9000"} />
+                <Icon name="calendar" size={14} color={'#ff9000'} />
                 <ProviderMetaText>Segunda à sexta</ProviderMetaText>
               </ProviderMeta>
 
               <ProviderMeta>
-                <Icon name="clock" size={14} color={"#ff9000"} />
+                <Icon name="clock" size={14} color={'#ff9000'} />
                 <ProviderMetaText>8h às 18h</ProviderMetaText>
               </ProviderMeta>
             </ProviderInfo>

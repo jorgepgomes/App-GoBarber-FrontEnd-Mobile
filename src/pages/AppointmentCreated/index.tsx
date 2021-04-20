@@ -1,8 +1,8 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
-import React, { useCallback, useMemo } from "react";
-import Icon from "react-native-vector-icons/Feather";
-import { format } from "date-fns";
-import ptBR from "date-fns/locale/pt-BR";
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useCallback, useMemo } from 'react';
+import Icon from 'react-native-vector-icons/Feather';
+import { format } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
 
 import {
   Container,
@@ -10,7 +10,7 @@ import {
   Description,
   OkButton,
   OkButtonText,
-} from "./styles";
+} from './styles';
 
 interface RouteParams {
   date: number;
@@ -26,7 +26,7 @@ const AppointmentCreated: React.FC = () => {
     reset({
       routes: [
         {
-          name: "Dashboard",
+          name: 'Dashboard',
         },
       ],
       index: 0,
@@ -37,7 +37,7 @@ const AppointmentCreated: React.FC = () => {
     return format(
       routeParams.date,
       "EEEE', dia' dd 'de' MMMM 'de' yyyy 'às' HH:mm'h'",
-      { locale: ptBR }
+      { locale: ptBR },
     );
   }, []);
 

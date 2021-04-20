@@ -1,5 +1,5 @@
-import styled from "styled-components/native";
-import { RectButton } from "react-native-gesture-handler";
+import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled(RectButton)`
   height: 60px;
@@ -13,7 +13,7 @@ export const Container = styled(RectButton)`
 `;
 
 export const ButtonText = styled.Text`
-  font-family: "RobotoSlab-Medium";
+  font-family: 'RobotoSlab-Medium';
   color: #321e38;
   font-size: 18px;
 `;

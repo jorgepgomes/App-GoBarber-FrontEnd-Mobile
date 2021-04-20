@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import Icon from "react-native-vector-icons/Feather";
-import DateTimePicker from "@react-native-community/datetimepicker";
-import { Platform, Alert } from "react-native";
-import { format } from "date-fns";
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Feather';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { Platform, Alert } from 'react-native';
+import { format } from 'date-fns';
 
 import {
   Container,
@@ -29,9 +29,9 @@ import {
   HourText,
   CreateAppointmentButton,
   CreateAppointmentButtonText,
-} from "./styles";
-import { useAuth } from "../../hooks/auth";
-import api from "../../services/api";
+} from './styles';
+import { useAuth } from '../../hooks/auth';
+import api from '../../services/api';
 
 interface RouteParamns {
   providerId: string;
@@ -57,7 +57,7 @@ const CreateAppointment: React.FC = () => {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [providers, setProviders] = useState<Provider[]>([]);
   const [selectedProvider, setSelectedProvider] = useState(
-    routeParams.providerId
+    routeParams.providerId,
   );
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedHour, setSelectedHour] = useState(0);
@@ -65,7 +65,7 @@ const CreateAppointment: React.FC = () => {
 
   useEffect(() => {
     api
-      .get("providers")
+      .get('providers')
       .then((response) => {
         setProviders(response.data);
       })
@@ -100,11 +100,11 @@ const CreateAppointment: React.FC = () => {
 
   const handleDateChanged = useCallback(
     (event: any, date: Date | undefined) => {
-      if (Platform.OS === "android") setShowDatePicker(false);
+      if (Platform.OS === 'android') setShowDatePicker(false);
 
       if (date) setSelectedDate(date);
     },
-    []
+    [],
   );
 
   const handleSelectHour = useCallback((hour: number) => {
@@ -118,7 +118,7 @@ const CreateAppointment: React.FC = () => {
         return {
           hour,
           available,
-          hourFormatted: format(new Date().setHours(hour), "HH:00"),
+          hourFormatted: format(new Date().setHours(hour), 'HH:00'),
         };
       });
   }, [availability]);
@@ -130,7 +130,7 @@ const CreateAppointment: React.FC = () => {
         return {
           hour,
           available,
-          hourFormatted: format(new Date().setHours(hour), "HH:00"),
+          hourFormatted: format(new Date().setHours(hour), 'HH:00'),
         };
       });
   }, [availability]);
@@ -142,16 +142,16 @@ const CreateAppointment: React.FC = () => {
       date.setHours(selectedHour);
       date.setMinutes(0);
 
-      await api.post("appointments", {
+      await api.post('appointments', {
         provider_id: selectedProvider,
         date,
       });
 
-      navigate("AppointmentCreated", { date: date.getTime() });
+      navigate('AppointmentCreated', { date: date.getTime() });
     } catch (err) {
       Alert.alert(
-        "Erro ao criar agendamento",
-        "ocorreu um erro ao tentar criar agendamento novamente"
+        'Erro ao criar agendamento',
+        'ocorreu um erro ao tentar criar agendamento novamente',
       );
     }
   }, [navigate, selectedDate, selectedHour, selectedProvider]);
@@ -247,7 +247,7 @@ const CreateAppointment: React.FC = () => {
                       {hourFormatted}
                     </HourText>
                   </Hour>
-                )
+                ),
               )}
             </SectionContent>
           </Section>

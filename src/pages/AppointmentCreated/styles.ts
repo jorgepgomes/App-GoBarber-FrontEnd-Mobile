@@ -1,5 +1,5 @@
-import { RectButton } from "react-native-gesture-handler";
-import styled from "styled-components/native";
+import { RectButton } from 'react-native-gesture-handler';
+import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
@@ -9,7 +9,7 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-family: "RobotoSlab-Medium";
+  font-family: 'RobotoSlab-Medium';
   color: #f4ede8;
   font-size: 32px;
   margin-top: 48px;
@@ -17,7 +17,7 @@ export const Title = styled.Text`
 `;
 
 export const Description = styled.Text`
-  font-family: "RobotoSlab-Regular";
+  font-family: 'RobotoSlab-Regular';
   color: #999591;
   font-size: 18px;
   margin-top: 16px;
@@ -33,7 +33,7 @@ export const OkButton = styled(RectButton)`
 `;
 
 export const OkButtonText = styled.Text`
-  font-family: "RobotoSlab-Medium";
+  font-family: 'RobotoSlab-Medium';
   color: #312e38;
   font-size: 18px;
 `;

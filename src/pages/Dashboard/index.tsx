@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/core";
+import { useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useState } from "react";
 import Icon from "react-native-vector-icons/Feather";
 import { useAuth } from "../../hooks/auth";

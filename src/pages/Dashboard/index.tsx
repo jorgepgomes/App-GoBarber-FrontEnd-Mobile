@@ -38,7 +38,6 @@ const Dashboard: React.FC = () => {
       .get("providers")
       .then((response) => {
         setProviders(response.data);
-        console.log("providers: ", response.data);
       })
       .catch(console.log);
   }, []);

@@ -12,10 +12,7 @@ import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import Icon from 'react-native-vector-icons/Feather';
-import {
-  launchImageLibrary,
-  ImagePickerResponse,
-} from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 import getValidationErrors from '../../utils/getValidationErrors';
 import api from '../../services/api';
 
